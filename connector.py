@@ -5,11 +5,11 @@ from urllib.request import urlopen
 start_date = "2023-06-12"
 todays_date = str(date.today())
 delta = datetime.strptime(todays_date, "%Y-%m-%d") - datetime.strptime(start_date, "%Y-%m-%d")
-id = data[delta.days]['id']
 
 url = "https://www.nytimes.com/games-assets/connections/game-data-by-day.json"
 response = urlopen(url)
 data = json.loads(response.read())
+id = data[delta.days]['id']
 
 groups_list = list(data[delta.days]['groups'])
 items_list = list(data[delta.days]['groups'].values())
